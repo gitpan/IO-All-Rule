@@ -1,5 +1,5 @@
 ---
-abstract: 'File finder based on Path::Iterator::Rule, but using IO::All'
+abstract: 'Iterative, recursive file finder with IO::All'
 author:
   - 'David Golden <dagolden@cpan.org>'
 build_requires:
@@ -32,13 +32,11 @@ no_index:
 provides:
   IO::All::Rule:
     file: lib/IO/All/Rule.pm
-    version: 0.001
+    version: 0.002
 requires:
   IO::All: 0
-  IO::Dir: 0
-  Path::Iterator::Rule: 0
+  Path::Iterator::Rule: 0.002
   namespace::clean: 0
-  parent: 0
   perl: 5.010
   strict: 0
   warnings: 0
@@ -46,4 +44,4 @@ resources:
   bugtracker: https://github.com/dagolden/io-all-rule/issues
   homepage: https://metacpan.org/release/IO-All-Rule
   repository: git://github.com/dagolden/io-all-rule.git
-version: 0.001
+version: 0.002

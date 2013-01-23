@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "File finder based on Path::Iterator::Rule, but using IO::All",
+  "ABSTRACT" => "Iterative, recursive file finder with IO::All",
   "AUTHOR" => "David Golden <dagolden\@cpan.org>",
   "BUILD_REQUIRES" => {
     "Config" => 0,
@@ -31,14 +31,12 @@ my %WriteMakefileArgs = (
   "NAME" => "IO::All::Rule",
   "PREREQ_PM" => {
     "IO::All" => 0,
-    "IO::Dir" => 0,
-    "Path::Iterator::Rule" => 0,
+    "Path::Iterator::Rule" => "0.002",
     "namespace::clean" => 0,
-    "parent" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.001",
+  "VERSION" => "0.002",
   "test" => {
     "TESTS" => "t/*.t"
   }

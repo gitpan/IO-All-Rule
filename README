@@ -1,9 +1,8 @@
 NAME
-    IO::All::Rule - File finder based on Path::Iterator::Rule, but using
-    IO::All
+    IO::All::Rule - Iterative, recursive file finder with IO::All
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
       use IO::All::Rule;
