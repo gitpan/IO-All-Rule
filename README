@@ -2,7 +2,7 @@ NAME
     IO::All::Rule - Iterative, recursive file finder with IO::All
 
 VERSION
-    version 0.002
+    version 0.003
 
 SYNOPSIS
       use IO::All::Rule;
@@ -30,6 +30,9 @@ DESCRIPTION
 
     See that module for details on features and usage.
 
+    See "PERFORMANCE" for important caveats. You might want to use
+    "Path::Iterator::Rule" instead.
+
 EXTENDING
     This module may be extended in the same way as "Path::Iterator::Rule",
     but test subroutines receive "IO::All" objects instead of strings.
@@ -45,6 +48,27 @@ LEXICAL WARNINGS
     statement at the correct scope:
 
       no warnings 'Path::Iterator::Rule';
+
+PERFORMANCE
+    Because all files and directories as processed as "IO::All" objects,
+    using this module is significantly slower than "Path::Iterator::Rule".
+
+    If you are scanning tens of thousands of files and speed is a concern,
+    you might be better off using that instead and only creating objects
+    from results.
+
+        use IO::All;
+        use Path::Iterator::Rule;
+
+        my $rule = Path::Iterator::Rule->new->file->size(">10k");
+        my $next = $rule->iter( @dirs );
+
+        while ( my $file = io($next->()) ) {
+            ...
+        }
+
+    Generally, I recommend use this module only if you need to write custom
+    rules that need "IO::All" features.
 
 SUPPORT
   Bugs / Feature Requests
